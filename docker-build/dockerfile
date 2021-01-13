@@ -1,0 +1,16 @@
+FROM python
+
+LABEL author="zelin"
+LABEL purpose = ''
+
+ENV PYTHONIOENCODING=utf-8
+
+WORKDIR /proj_ccf
+# RUN cd /proj_ccf
+
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple celery==5.0.5
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple absl-py==0.1.9
+
+
+CMD ["bash", "docker-build/run_celery_work.sh"]
+

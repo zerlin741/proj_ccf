@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+version: '3.4'
+
+services:
+    worker:
+        restart: always
+        stdin_open: true
+        tty: true
+        network_mode: "host"
+        build:
+          context: ./
+          dockerfile: dockerfile
+        volumes:
+             - ../:/proj_ccf
+        ports:
+          - "5672:5672"
+        deploy:
+          resources:
+            limits:
+              memory: 2G
